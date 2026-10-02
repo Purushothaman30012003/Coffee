@@ -1,0 +1,220 @@
+/* ===== Coffee Bliss – custom styles (on top of Bootstrap 5) ===== */
+
+/* 1. Colour palette */
+:root {
+  --dark-brown: #3b2416;
+  --light-brown: #a9743f;
+  --cream: #f6ecd9;
+  --beige: #e6d3b3;
+  --white: #ffffff;
+}
+
+/* 2. Base */
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  color: var(--dark-brown);
+  overflow-x: hidden;
+}
+h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; }
+.section { padding: 4rem 0; scroll-margin-top: 70px; }
+.bg-cream { background: var(--cream); }
+.bg-dark-brown { background: var(--dark-brown); }
+.section-title { font-size: clamp(1.8rem, 5vw, 2.6rem); margin-bottom: .75rem; }
+
+/* 3. Buttons (with hover animation) */
+.btn-cb {
+  background: var(--light-brown);
+  color: var(--white);
+  border: 2px solid var(--light-brown);
+  transition: transform .25s, box-shadow .25s, background .25s;
+}
+.btn-cb:hover,
+.btn-cb:focus {
+  background: var(--dark-brown);
+  border-color: var(--dark-brown);
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, .25);
+}
+.btn-cb-outline { transition: transform .25s, background .25s, color .25s; }
+.btn-cb-outline:hover {
+  background: var(--white);
+  color: var(--dark-brown);
+  transform: translateY(-3px);
+}
+
+/* 4. Navbar */
+#mainNav {
+  background: rgba(59, 36, 22, .95);
+  transition: padding .3s, box-shadow .3s;
+  padding: .9rem 0;
+}
+#mainNav.scrolled { padding: .5rem 0; box-shadow: 0 4px 14px rgba(0, 0, 0, .3); }
+.navbar-brand {
+  font-family: Georgia, serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--beige) !important;
+}
+.nav-link { position: relative; color: var(--cream) !important; }
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: .5rem;
+  right: .5rem;
+  bottom: 2px;
+  height: 2px;
+  background: var(--light-brown);
+  transform: scaleX(0);
+  transition: transform .3s;
+}
+.nav-link:hover::after,
+.nav-link.active::after { transform: scaleX(1); }
+.nav-link.active { color: var(--beige) !important; font-weight: 600; }
+
+/* 5. Hero  (FIXED: correct path + no spaces in file name) */
+.hero {
+  min-height: 100vh;
+  padding: 7rem 0 4rem;
+  background:
+    linear-gradient(rgba(59, 36, 22, .55), rgba(59, 36, 22, .55)),
+    url("./assets/top-view-bowls-with-coffee-beans-powder\ 1.png") center / cover no-repeat;
+  background-attachment: scroll;
+}
+.hero-title { font-size: clamp(2rem, 7vw, 4rem); font-weight: 700; }
+.hero .lead { max-width: 620px; font-size: clamp(1rem, 2.5vw, 1.25rem); }
+
+/* 6. About */
+.about-list li { margin-bottom: .6rem; }
+.about-list i { color: var(--light-brown); margin-right: .4rem; }
+.img-zoom { overflow: hidden; }
+.img-zoom img { transition: transform .6s ease; }
+.img-zoom:hover img { transform: scale(1.1); }
+
+/* 7. Coffee cards */
+.coffee-card {
+  border: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform .3s, box-shadow .3s;
+}
+.coffee-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(59, 36, 22, .2);
+}
+.coffee-card .card-img-top { height: 210px; object-fit: cover; }
+.price { font-weight: 700; font-size: 1.2rem; color: var(--light-brown); }
+
+/* 8. Menu */
+.menu-box {
+  background: var(--cream);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border-top: 5px solid var(--light-brown);
+  transition: transform .3s, box-shadow .3s;
+}
+.menu-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(59, 36, 22, .15);
+}
+.menu-head { margin-bottom: 1rem; }
+.menu-head i { color: var(--light-brown); margin-right: .4rem; }
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .7rem 0;
+  border-bottom: 1px dashed var(--beige);
+}
+.menu-item:last-child { border-bottom: 0; }
+.menu-item > i { font-size: 1.4rem; color: var(--light-brown); }
+.menu-item div { flex: 1; }
+.menu-item small { display: block; color: #7a6555; }
+.menu-item span { font-weight: 700; }
+
+/* 9. Testimonials */
+.review { max-width: 640px; padding: 0 3rem 2rem; }
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--light-brown);
+  color: var(--white);
+  font: 700 1.8rem Georgia, serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border: 3px solid var(--beige);
+}
+.stars { color: #f5b942; margin-bottom: .5rem; }
+.review p { font-style: italic; font-size: 1.1rem; }
+
+/* 10. Contact */
+.form-control:focus {
+  border-color: var(--light-brown);
+  box-shadow: 0 0 0 .25rem rgba(169, 116, 63, .25);
+}
+.contact-info li { display: flex; gap: 1rem; margin-bottom: 1.25rem; }
+.contact-info i { font-size: 1.4rem; color: var(--light-brown); }
+.social { display: flex; gap: .75rem; margin-top: 1rem; }
+.social a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--dark-brown);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform .3s, background .3s;
+}
+.social a:hover { background: var(--light-brown); transform: translateY(-4px) rotate(8deg); }
+
+/* 11. Footer */
+.footer { background: #26160c; }
+.footer a { color: var(--beige); text-decoration: none; transition: color .2s, padding-left .2s; }
+.footer a:hover { color: var(--white); padding-left: 4px; }
+.footer .social a { background: var(--light-brown); padding-left: 0; }
+.footer li { margin-bottom: .35rem; }
+
+/* 12. Back to top */
+#backToTop {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--light-brown);
+  color: var(--white);
+  font-size: 1.3rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s, transform .3s, background .3s;
+  z-index: 1030;
+}
+#backToTop.show { opacity: 1; visibility: visible; }
+#backToTop:hover { background: var(--dark-brown); transform: translateY(-4px); }
+
+/* 13. Scroll animation (JS adds .visible) */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* 14. Responsive tweaks */
+@media (max-width: 576px) {            /* Mobile */
+  .section { padding: 3rem 0; }
+  .coffee-card .card-img-top { height: 180px; }
+  .review { padding: 0 2.5rem 2rem; }
+  .btn-lg { padding: .8rem 1rem; }
+}
+@media (min-width: 577px) and (max-width: 991px) {   /* Tablet */
+  .coffee-card .card-img-top { height: 200px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
